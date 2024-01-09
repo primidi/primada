@@ -1,0 +1,32 @@
+---
+import cn from '@utils/cn';
+import { Icon } from 'astro-icon/components';
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'a'> {
+  arrow?: boolean;
+  disabled?: boolean;
+}
+const { arrow = false, disabled = false, ...props } = Astro.props;
+---
+
+<a
+  class={cn(
+    'group text-md text-gray-700 transition duration-300',
+    props.class,
+    disabled && 'opacity-50 cursor-not-allowed',
+  )}
+  {...props}
+>
+  {
+    arrow ? (
+      <div class="flex justify-between">
+        <slot />
+        <Icon name="mdi:arrow-right-thin" width={32} height={32} />
+      </div>
+    ) : (
+      <slot />
+    )
+  }
+  {!disabled && <span class="block h-1 max-w-0 bg-gray-600 transition-all duration-500 group-hover:max-w-full" />}
+</a>

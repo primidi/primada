@@ -1,0 +1,63 @@
+---
+import Link from './Link.astro';
+const navList = [
+  {
+    text: 'About',
+    href: '#about',
+    disabled: false,
+  },
+  {
+    text: 'Blog',
+    href: '#blog',
+    disabled: true,
+  },
+  {
+    text: 'Contact',
+    href: '#contact',
+    disabled: false,
+  },
+];
+---
+
+<nav class="fixed top-0 z-10 w-full bg-gray-200 p-8 text-gray-700 shadow-lg duration-500">
+  <div class="flex flex-col md:flex-row md:justify-between">
+    <div class="flex justify-between">
+      <a class="self-center" href="#home">
+        <h5 class="text-lg">{'<Primada />'}</h5>
+      </a>
+      <button id="menu-button" class="self-center md:hidden" type="button">
+        <span class="sr-only">Open navigations menu</span>
+        <div class="flex flex-col gap-y-3">
+          <span class="h-1.5 w-10 rounded-full bg-gray-700"></span>
+          <span class="h-1.5 w-12 rounded-full bg-gray-700"></span>
+          <span class="h-1.5 w-8 rounded-full bg-gray-700"></span>
+        </div>
+      </button>
+    </div>
+    <div id="menu" class="hidden w-full md:flex md:w-auto md:items-center">
+      <ul class="flex flex-col gap-y-12 p-6 md:flex-row md:gap-x-24 md:gap-y-0 md:p-0">
+        {
+          navList.map((list) => (
+            <li>
+              <Link
+                href={list.href}
+                disabled={list.disabled}
+                title={list.disabled ? `${list.text} is coming soon!` : undefined}
+              >
+                {list.text}
+              </Link>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</nav>
+<script>
+  const button = document.getElementById('menu-button');
+  const menu = document.getElementById('menu');
+
+  button?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

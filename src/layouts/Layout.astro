@@ -1,0 +1,49 @@
+---
+
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/profile-picture.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>Gharis Primada Hariyono</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('lg:animate-slide-right');
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+    },
+  );
+
+  const sections = document.querySelectorAll('.animate-onscroll');
+  sections.forEach((section) => observer.observe(section));
+</script>
+<style is:global>
+  html {
+    font-family: 'Yeseva One', sans-serif;
+    font-size: 8px;
+    background-color: #f2f2f2;
+    scroll-behavior: smooth;
+  }
+</style>

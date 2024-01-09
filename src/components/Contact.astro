@@ -1,0 +1,40 @@
+---
+import { Icon } from 'astro-icon/components';
+import Section from './Section.astro';
+---
+
+<Section class="animate-onscroll gap-y-16" id="contact">
+  <div class="flex w-full flex-col items-center">
+    <div class="w-fit">
+      <h1 class="text-center text-xl text-gray-700 lg:text-right lg:text-3xl">Contact Me</h1>
+      <div class="flex justify-between">
+        <h3 class="text-md text-gray-500 md:text-lg lg:text-xl">#</h3>
+        <h3 class="text-md text-gray-500 md:text-lg lg:text-xl">03</h3>
+        <h3 class="text-md text-gray-500 md:text-lg lg:text-xl">To keep in touch</h3>
+      </div>
+    </div>
+  </div>
+  <div class="flex w-full justify-center gap-x-12">
+    <a
+      class="rounded-full p-10 text-gray-600 duration-300 hover:bg-gray-600 hover:text-gray-200"
+      href="mailto:hariyonogharis@gmail.com"
+      target="_blank"
+    >
+      <Icon width={48} height={48} name="mdi:email" />
+    </a>
+    <a
+      class="rounded-full p-10 text-gray-600 duration-300 hover:bg-gray-600 hover:text-gray-200"
+      href="https://www.instagram.com/primidi/"
+      target="_blank"
+    >
+      <Icon width={48} height={48} name="mdi:instagram" />
+    </a>
+    <a
+      class="rounded-full p-10 text-gray-600 duration-300 hover:bg-gray-600 hover:text-gray-200"
+      href="https://twitter.com/pr1midi"
+      target="_blank"
+    >
+      <Icon width={48} height={48} name="mdi:twitter" />
+    </a>
+  </div>
+</Section>
